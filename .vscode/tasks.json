@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Iniciar site",
+      "type": "npm",
+      "script": "dev",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "Iniciar site na rede",
+      "type": "npm",
+      "script": "dev:lan",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "Verificar projeto",
+      "dependsOrder": "sequence",
+      "dependsOn": ["npm: lint", "npm: typecheck", "npm: test", "npm: build"]
+    }
+  ]
+}
