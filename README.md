@@ -29,14 +29,16 @@ Repositório: <https://github.com/jpmarcal1718-stack/site-de-Meio-ambiente>.
 
 O workflow `.github/workflows/deploy.yml` instala pelo lockfile, executa lint, TypeScript, testes, build e fluxos Chromium em três tamanhos de tela antes da publicação. Usa ações oficiais fixadas por SHA, com as versões anotadas. A aplicação usa `HashRouter`, base `/site-de-Meio-ambiente/` e escopo PWA correspondente; telas internas podem ser atualizadas sem rotas de servidor.
 
-**Bloqueio encontrado:** o repositório está privado e a API retornou `422: Your current plan does not support GitHub Pages for this repository`. Não há URL pública confirmada nesta etapa. No plano atual, é necessário o proprietário autorizar tornar este repositório público. A alternativa é um plano compatível com Pages em repositórios privados.
+**Site publicado e verificado, sem login:** <https://jpmarcal1718-stack.github.io/site-de-Meio-ambiente/>.
 
-Após resolver essa disponibilidade:
+O proprietário autorizou tornar o repositório público e o Pages foi habilitado com publicação por GitHub Actions. A publicação inicial foi concluída com sucesso, seguida de verificação HTTP sem autenticação da página, JavaScript, CSS, manifesto, ícones e service worker. A tela interna foi recarregada no navegador sem erro 404.
 
-1. Em **Settings > Pages > Build and deployment > Source**, escolha **GitHub Actions**.
-2. Repositórios públicos habilitam o job `deploy` automaticamente. Em repositório privado com plano compatível, defina a variável de repositório `PAGES_ENABLED=true` em **Settings > Secrets and variables > Actions > Variables**.
-3. Em **Actions > Verificar e publicar no GitHub Pages**, use **Run workflow**, ou envie novo commit à branch `main`.
-4. Aguarde os jobs `build` e `deploy`. Verifique em janela anônima a URL devolvida pelo ambiente `github-pages`. Não anuncie uma URL calculada como se estivesse publicada.
+Para acompanhar ou repetir a publicação:
+
+1. **Settings > Pages > Build and deployment > Source** já está configurado para **GitHub Actions**.
+2. Envie um novo commit à branch `main` ou use **Actions > Verificar e publicar no GitHub Pages > Run workflow**.
+3. Aguarde os jobs `build` e `deploy`. O endereço público é o retornado pelo ambiente `github-pages`.
+4. Se futuramente usar um repositório privado em plano compatível, defina `PAGES_ENABLED=true` nas variáveis de Actions para habilitar o job de publicação.
 
 Ao abrir a aplicação por HTTPS no domínio real `jpmarcal1718-stack.github.io`, **Critérios e uso > Compartilhar a demonstração** identifica o endereço servido e disponibiliza QR Code para baixar em PNG ou SVG. Não gera QR para visitantes com localhost ou IP privado.
 

@@ -189,3 +189,22 @@ test("indicador abre recorte correto e páginas não transbordam na horizontal",
     ).toBe(true);
   }
 });
+
+
+test("compartilhamento usa endereço público e baixa QR Codes", async ({ page }) => {
+  const address = "https://jpmarcal1718-stack.github.io/site-de-Meio-ambiente/";
+  await page.goto("./#/criterios");
+  await expect(page.getByRole("link", { name: address, exact: true })).toHaveAttribute("href", address);
+  await expect(page.getByRole("img", { name: `QR Code para acessar ${address}`, exact: true })).toBeVisible();
+  const pngEvent = page.waitForEvent("download");
+  await page.getByRole("link", { name: "PNG", exact: true }).click();
+  const pngPath = await (await pngEvent).path();
+  if (!pngPath) throw new Error("QR Code PNG não foi baixado.");
+  const png = await readFile(pngPath);
+  expect(png.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))).toBe(true);
+  const svgEvent = page.waitForEvent("download");
+  await page.getByRole("button", { name: "SVG", exact: true }).click();
+  const svgPath = await (await svgEvent).path();
+  if (!svgPath) throw new Error("QR Code SVG não foi baixado.");
+  expect(await readFile(svgPath, "utf8")).toContain("<svg");
+});

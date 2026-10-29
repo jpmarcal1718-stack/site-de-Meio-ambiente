@@ -20,8 +20,8 @@
 ## Limites externos e decisões
 
 - A referência original exibiu “Entre para acessar”; não houve inspeção das telas internas. A interface segue a especificação visual fornecida.
-- O repositório GitHub foi criado privado. A criação do Pages foi recusada pela API com HTTP 422 e a mensagem de plano incompatível. O workflow verifica o projeto e mantém a publicação desabilitada enquanto privado, exceto quando a variável `PAGES_ENABLED=true` sinalizar um plano compatível.
-- Não há endereço público confirmado nem QR Code público até concluir a publicação. A configuração e a interface estão preparadas. Autorizar tornar este repositório público permite habilitar Pages no plano atual.
+- O repositório GitHub foi criado privado. A criação do Pages foi recusada pela API com HTTP 422 e a mensagem de plano incompatível. Após a autorização, o repositório se tornou público, resolvendo esse bloqueio.
+- O proprietário autorizou tornar o repositório público. Pages habilitado e publicação inicial concluída: https://jpmarcal1718-stack.github.io/site-de-Meio-ambiente/. Página e recursos retornaram HTTP 200 sem autenticação; uma tela interna foi recarregada no navegador. O QR Code do endereço confirmado aparece em Critérios e uso.
 - Os registros são independentes por origem/navegador/dispositivo, sem backend coletivo. Acesso público não muda essa característica.
 - Autoria não fornecida permanece não informada e configurável. Não há imagens oficiais, brasões, dados pessoais ou fotos reais. Anexos fotográficos não fazem parte desta versão.
 

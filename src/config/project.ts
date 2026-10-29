@@ -3,7 +3,9 @@ export const project = {
   institution: "",
   members: [] as string[],
   advisor: "",
-  publicUrl: import.meta.env.VITE_PUBLIC_URL || "",
+  publicUrl:
+    import.meta.env.VITE_PUBLIC_URL ||
+    "https://jpmarcal1718-stack.github.io/site-de-Meio-ambiente/",
 };
 export const AREAS = [
   "Áreas verdes e arborização",
